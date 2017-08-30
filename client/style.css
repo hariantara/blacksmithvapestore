@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here|Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+/*div{
+  border: 1px solid black;
+}*/
+
+.product_view .modal-dialog{max-width: 800px; width: 100%;}
+.pre-cost{text-decoration: line-through; color: #a5a5a5;}
+.space-ten{padding: 10px 0;}
+
+.logo{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  /*background-image: url('/img/smoke.png');
+  background-size: 500px 150px;
+  background-repeat: no-repeat;*/
+}
+
+.header-font{
+  font-family: 'Just Me Again Down Here', cursive;
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Inconsolata', monospace;
+}
+
+a{
+  color: black;
+}
+
+.col-md-12{
+  text-align: center;
+}
+
+.menubar{
+  padding-bottom: 10px;
+  background-color: #999999;
+}
+
+.font-category{
+  font-family: 'Inconsolata', monospace;
+}
+
+.gap{
+  padding: 10px 0px 10px 0px;
+}
+
+li {
+   list-style-type: none;
+}
+
+.wrap-sell-item{
+  padding: 8px;
+  margin: 17px;
+}
+
+ul{
+  padding: 45px;
+}
+
+.scroll {
+    background-color: white;
+    width: 1100px;
+    height: 550px;
+    overflow-y: scroll;
+}
+
+.bg-4 {
+      background-color: #2f2f2f;
+      color: #fff;
+      padding-top: 30px;
+      padding-bottom: 70px;
+  }
+  /*.container-fluid {
+      padding-top: 30px;
+      padding-bottom: 70px;
+  }*/
+
+  /*SHOOPING CHART*/

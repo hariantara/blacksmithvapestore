@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- vue -->
+  <script src="https://unpkg.com/vue"></script>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <!-- axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- googleapis -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</head>
+
+<body>
+  <!-- LOGO -->
+<div id='app'>
+  <div class="logo">
+    <img src="/img/vapeman.jpg" height="200" width="200">
+    <h1>Blacksmith</h1>
+  </div>
+
+  <!-- headers -->
+  <div class="container-fluid menubar">
+    <div class="row">
+      <div class="col-md-12 header-font">
+        <div class="col-sm-1 menu-logo">
+          <h3><a href="#">Home</a></h3>
+        </div>
+        <div class="col-sm-1">
+          <h3><a href="#">About</a></h3>
+        </div>
+        <div class="col-sm-1">
+          <h3><a href="#">Contact</a></h3>
+        </div>
+        <div class="col-sm-1 col-md-offset-7">
+          <h3><a href="chart.html">Cart</a></h3>
+        </div>
+        <div class="col-sm-1 ">
+          <h3><a href="#">Logout</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- GAP -->
+  <div class="gap">
+  </div>
+  <!-- Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 font-category">
+        <div class="col-md-12">
+          <h3>Category</h3>
+        </div>
+
+        <ul>
+
+          <li>
+            <div class="col-md-12">
+              <h4>Mod</h4>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-12">
+              <h4>Atomizer</h4>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-12">
+              <h4>E-Liquid</h4>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-12">
+              <h4>Acessories</h4>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-10" >
+        <div class="scroll">
+          <div class="col-md-2 wrap-sell-item" v-for='product in products'>
+            <img src="/img/5.jpg" height="180" width="150">
+            <strong>{{product.name}}</strong>
+            <p>$ {{product.price}}</p>
+            <button type="button" v-on:click="showById(product._id)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">View Detail</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="container" >
+    <!-- Trigger the modal with a button -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+            <h3 class="modal-title">{{detail.name}}</h3>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 product_img">
+                <img src="http://img.bbystatic.com/BestBuy_US/images/products/5613/5613060_sd.jpg" class="img-responsive">
+              </div>
+              <div class="col-md-6 product_content">
+                <h4>Product Id: <span>{{detail._id}}</span></h4>
+                <div class="rating">
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span> (10 reviews)
+                </div>
+                <p>{{detail.description}}</p>
+                <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> {{detail.price}} <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> 60.00</small></h3>
+                <div class="row">
+
+                  <!-- end col -->
+
+                  <!-- end col -->
+                  <div class="col-md-4 col-sm-12">
+                    <select class="form-control" name="select" v-model="openQTY">
+                                    <option value="" selected="">QTY</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                  </div>
+                  <!-- end col -->
+                </div>
+                <div class="space-ten"></div>
+                <div class="btn-ground">
+                  <button type="button" v-on:click="cart(detail)" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Checkout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!--  -->
+
+  <footer class="container-fluid bg-4 text-center">
+    <p>Blacksmith Vape Store Created By Hari Antara</a>
+    </p>
+  </footer>
+  <script src="./controller/app.js">
+  </script>
+</div>
+</body>
+
+</html>
